@@ -106,13 +106,42 @@ Musica * H = (Musica *) malloc(sizeof(Musica));
 
 //Listando as músicas
 
-for(int i = 0; i<=5; i++) {
-    Musica * Atual; 
-    Atual = Atual->proximo;
+// for(int i = 0; i<=5; i++) {
+//     Musica * Atual; 
+//     Atual = Atual->proximo;
 
-    printf("%s\n%s\n%d", Atual->Titulo, Atual->Autor, Atual->Ano);
+//     printf("%s\n%s\n%d", Atual->Titulo, Atual->Autor, Atual->Ano);
 
-}
+// }
+
+// Encadeando em ordem alfabética
+
+    D->anterior = NULL;
+    D->proximo = G;
+
+    G->anterior = D;
+    G->proximo = F;
+
+    F->anterior = G;
+    F->proximo = E;
+
+    E->anterior = F;
+    E->proximo = H;
+
+    H->anterior = E;
+    H->proximo = NULL;
+
+// EXIBINDO ELEMENTOS
+
+    Musica * Atual = D;
+
+    while(Atual != NULL) {
+        Atual = Atual->proximo;
+        printf("%s\n", Atual->Titulo);
+        
+    }
+
 
     return 0;
+
 }
