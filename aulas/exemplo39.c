@@ -27,15 +27,10 @@
 
         system("cls");
 
-// Como criar variáveis do tipo Item
 
-        Item * Fila = (Item *) malloc(MAX * sizeof(Item)); // Alocação dinamica em tempo de execução
-        
-        Fila[0] = CriarItem(137);
-        Fila[1] = CriarItem(241); 
-        Fila[2] = CriarItem(339);
+// Como criar a fila
 
-        DestruirFila(Fila);
+        Fila * Fila = CriarFIla(10);
 
 // Inserir elementos na fila
 
@@ -44,9 +39,21 @@
         Enfileirar(Fila, CriarItem(30));
         Enfileirar(Fila, CriarItem(40));
 
+// Exibindo a lista após adicionar itens na fila
+
         ExibirFila(Fila);
 
+// Remover elemento do mais antigo ao mais recente
 
+        Desenfileirar(Fila);
+
+        ExibirFila(Fila);
+
+        Desenfileirar(Fila);
+
+        ExibirFila(Fila);
+
+        DestruirFila(Fila);
 
         return 0;
     }
@@ -114,6 +121,13 @@
             printf("%d\t", F->Dados[i].chave);
         }
         printf("\n");
+    }
+
+    void Desenfileirar(Fila * F) {
+
+        if (F->Tamanho == 0) return; // para evitar o UnderFlow
+        F->Inicio = F->Inicio + 1;
+        F->Tamanho--;
     }
 
     
